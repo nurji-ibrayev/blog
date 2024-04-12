@@ -1,0 +1,26 @@
+# Отключение расширения .html
+RewriteEngine On
+RewriteRule ^index\.php$ / [R=301,L]
+RewriteRule ^(.*)/index\.php$ /$1/ [R=301,L]
+
+# Отключение www. из адреса сайта
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Запрет на загрузку .mp4 из других серверов
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www.)?buzau.ga/ [NC]
+#RewriteRule .*\.(mp4)$ - [F]
+
+# Запрет на скачивание .mp4 по прямой ссылке
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?buzau\.ga
+#RewriteRule \.mp4$ / [R,L]
+
+# Установка кодировки
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .js
+
+# Задает время хранения указанных расширений в кэше в секундах
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+	Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
