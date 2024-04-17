@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('review_models', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('email');
-            $table->string('subject');
+            $table->boolean('hide_email');
+            $table->integer('rating');
             $table->text('message');
             $table->timestamps();
         });

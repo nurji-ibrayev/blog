@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\NavigationController@home');
 
-Route::get('/reviews', 'App\Http\Controllers\NavigationController@reviews');
+Route::get('/reviews', 'App\Http\Controllers\NavigationController@reviews')->name('reviews');
 
 Route::post('/reviews/review_check', 'App\Http\Controllers\NavigationController@review_check');
 

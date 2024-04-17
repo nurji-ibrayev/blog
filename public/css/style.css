@@ -119,6 +119,14 @@ body
     display: block;
 }
 
+form
+{
+    text-align: left;
+    background-color: #E3E3E3;
+    border-radius: 5px;
+    padding: 15px 25px;
+}
+
 .container
 {
     width: 95%;
@@ -178,14 +186,19 @@ h6
     margin-bottom: 25px;
 }
 
+label
+{
+    margin-top: 5px;
+    display: inline-block;
+}
+
 input
 {
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin: 5px 0;
     font-size: 13px;
     padding: 10px;
-    margin-bottom: 10px;
+    vertical-align: middle;
 }
 
 select
@@ -199,7 +212,7 @@ select
 textarea
 {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 5px 0;
     font-size: 13px;
     padding: 10px;
     max-width: 100%;
@@ -509,6 +522,11 @@ footer a:active
         color: #FFF;
     }
 
+    form
+    {
+        background-color: #404040;
+    }
+
     h3
     {
         text-shadow: 1px 1px #000;
@@ -642,7 +660,7 @@ footer a:active
         margin-bottom: 2.5vw;
     }
 
-    label, span, a, p
+    label, span, a, b, p
     {
         font-size: 3vw;
         /*word-break: break-all;*/
