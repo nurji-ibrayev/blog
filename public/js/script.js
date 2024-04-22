@@ -2,6 +2,7 @@
 let hidden_menu = document.getElementById('hidden_menu');
 let desktop_menu = document.getElementById('desktop_menu');
 let mobile_menu = document.getElementById('mobile_menu');
+let account_corner = document.getElementById('account_corner');
 let fullscreen_image = document.getElementById('fullscreen_image');
 let last_scroll = window.pageYOffset;
 let slideshow_image = document.getElementById('slideshow_image');
@@ -21,6 +22,7 @@ window.onload = function()
     hidden_menu = document.getElementById('hidden_menu');
     desktop_menu = document.getElementById('desktop_menu');
     mobile_menu = document.getElementById('mobile_menu');
+    account_corner = document.getElementById('account_corner');
     fullscreen_image = document.getElementById('fullscreen_image');
     slideshow_image = document.getElementById('slideshow_image');
     top_link = document.getElementById('top_link');
@@ -135,6 +137,7 @@ function Scroll_page(container_name)
             {
                 mobile_menu.style.transform = 'none';
                 desktop_menu.style.transform = 'none';
+                account_corner.style.transform = 'none';
             }, 100);
         }
         else
@@ -168,6 +171,9 @@ function Hide_header()
 
         desktop_menu.style.transition = 'transform 100ms ease-in-out';
         desktop_menu.style.transform = 'none';
+
+        account_corner.style.transition = 'transform 100ms ease-in-out';
+        account_corner.style.transform = 'none';
     }
     else
     {
@@ -185,6 +191,9 @@ function Hide_header()
 
             desktop_menu.style.transition = 'transform 500ms ease-in-out';
             desktop_menu.style.transform = 'translateY(-50px)';
+
+            account_corner.style.transition = 'transform 500ms ease-in-out';
+            account_corner.style.transform = 'translateY(-50px)';
         }
 
     }
@@ -246,14 +255,18 @@ function Hide_menu(status)
     if(status)
     {
         desktop_menu.style.display = 'none';
-        hidden_menu.title = "Показать навигацию";
 
+        hidden_menu.title = "Показать навигацию";
         hidden_menu.blur();
+
+        account_corner.style.display = 'none';
     }
     else
     {
         desktop_menu.style.display = 'block';
         hidden_menu.title = "Скрыть навигацию";
+
+        account_corner.style.display = 'block';
     }
 }
 

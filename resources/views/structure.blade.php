@@ -29,11 +29,11 @@
                 </a>
 
                 <button id="hidden_menu" onclick="if(document.getElementById('desktop_menu').style.display == 'block'){ Hide_menu(true); } else{ Hide_menu(false); }" onblur="setTimeout(function(){ Hide_menu(true); }, 200);" title="Показать навигацию">&#9776;</button>
-                <hr style="margin: 0; width: 100vw; height: 1px; position: relative; z-index: 9999;">
+                <hr style="background-color: #FFFFFF; margin: 0; width: 100vw; position: relative; z-index: 9999;">
             </nav>
 
             <nav id="desktop_menu">
-                <a id="home_link" href="/" title="Главная страница" style="text-decoration: none;">
+                <a id="home_link" href="/" title="Главная страница">
                     <svg class="navigation_logo" viewBox="0 0 775 250" height="40px" style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
                         <style type="text/css">
                             .fil8 {fill:#525252;}
@@ -63,6 +63,17 @@
                 <a id="contact_link" href="/contact" title="Узнать контакты" onclick="Scroll_page('contact'); event.preventDefault();">Контакты</a>
             </nav>
 
+            <div id="account_corner">
+                @auth('web')
+                    <span style="color: white; margin: 0 5px;">{{Auth::user()->email}}</span>
+                    <button onclick="window.location='{{route("logout")}}'" title="Выйти из аккаунта" style="border: 1px solid #FFF;">Выйти</button>
+                @endauth
+
+                @guest('web')
+                    <button onclick="window.location='{{route("login")}}'" title="Войти в аккаунт" style="border: 1px solid #FFF;">Войти</button>
+                @endguest
+            </div>
+
             <div id="fullscreen_image">
                 <button id="close_fullscreen" onclick="fullscreen_image.style.display = 'none';" title="Закрыть">&#10005;</button>
             </div>
@@ -71,7 +82,7 @@
         @yield('container')
 
         <footer id="footer">
-            <hr style="margin: 0; height: 1px;">
+            <hr style="background-color: #FFFFFF; margin: 0;">
             <a href="/" title="Главная страница">
                 <svg class="top_logo" viewBox="0 0 775 250" height="45" style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
                     <style type="text/css">

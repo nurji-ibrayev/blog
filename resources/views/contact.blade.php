@@ -7,7 +7,7 @@
         <h3>Контакты</h3>
 
         <h6 style="margin-bottom: 0;">Индивидуальный предприниматель &#171;EyeBall&#187;</h6>
-        <p style="margin-top: 0; color: #808080;">г. Астана, пр. Улы Дала, д. 27/3</p>
+        <p style="margin-top: 0; color: #999999;">г. Астана, пр. Улы Дала, д. 27/3</p>
 
         <div class="product_view">
             <img class="product_image" style="width: 35%;" src="../images/eyeball_logo.svg" alt="manipulator_image" onclick="Fullscreen_image('../images/eyeball_logo.svg')">

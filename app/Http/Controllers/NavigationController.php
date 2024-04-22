@@ -39,7 +39,7 @@ class NavigationController extends Controller
 
         $review->save();
 
-        return redirect()->route('reviews');
+        return redirect('/reviews');
     }
 
     public function about()
