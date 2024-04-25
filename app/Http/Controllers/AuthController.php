@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ForgotPassword;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -27,6 +29,32 @@ class AuthController extends Controller
         }
 
         return redirect('/login')->withErrors(['email' => 'Email or password invalid']);
+    }
+
+    public function showForgotForm()
+    {
+        return view('auth.forgot');
+    }
+
+    public function forgot(Request $request)
+    {
+        $data = $request->validate
+        ([
+            'email' => 'required|string|email|exists:users',
+        ]);
+
+        $user = User::where
+        ([
+            'email' => $data['email']
+        ])->first();
+
+        $password = uniqid();
+        $user->password = bcrypt($password);
+        $user->save();
+
+        Mail::to($user)->send(new ForgotPassword($password));
+
+        return redirect('/login');
     }
 
     public function logout()

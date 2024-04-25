@@ -1,10 +1,10 @@
 @extends('structure')
 
-@section('title', 'EyeBall.kz - Авторизация')
+@section('title', 'EyeBall.kz - Восстановление пароля')
 
 @section('container')
     <div class="container" id="authorization">
-        <h3>Авторизация</h3>
+        <h3>Восстановление пароля</h3>
 
         @if($errors->any())
             <div>
@@ -16,16 +16,14 @@
             </div>
         @endif
 
-        <form method="POST" action="{{route('login_process')}}">
+        <form method="POST" action="{{route('forgot_process')}}">
             @csrf
-            <h4 style="padding: 0; margin: 5px 0 25px 0;">Вход на сайт:</h4>
+            <h4 style="padding: 0; margin: 5px 0 25px 0;">Сброс пароля:</h4>
             <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="password" placeholder="Пароль">
 
-            <a href="{{route('register')}}">Регистрация</a>
-            <a href="{{route('forgot')}}" style="margin: 0 5px;">Забыли пароль?</a>
+            <a href="{{route('login')}}" style="margin: 0 5px;">Вспомнили пароль?</a>
             <br>
-            <button type="submit" style="margin: 10px 0;">Войти</button>
+            <button type="submit" style="margin: 10px 0;">Сбросить</button>
         </form>
     </div>
 @endsection

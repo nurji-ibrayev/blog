@@ -656,8 +656,8 @@ footer a:active
         display: inline;
         fill: #FFF;
         margin: 0;
-        padding: 0 2vw;
-        border-radius: 5px;
+        padding: 0 2vw 1vw 2vw;
+        border-radius: 1.5vw;
         font-size: 10vw;
         font-weight: bold;
     }
