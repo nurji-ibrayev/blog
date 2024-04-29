@@ -1,11 +1,27 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
 # Отключение расширения .html
-RewriteEngine On
-RewriteRule ^index\.php$ / [R=301,L]
-RewriteRule ^(.*)/index\.php$ /$1/ [R=301,L]
+#RewriteEngine On
+#RewriteRule ^index\.php$ / [R=301,L]
+#RewriteRule ^(.*)/index\.php$ /$1/ [R=301,L]
 
 # Отключение www. из адреса сайта
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 # Запрет на загрузку .mp4 из других серверов
 #RewriteCond %{HTTP_REFERER} !^$

@@ -8,19 +8,26 @@
 
         @foreach($reviews as $review)
             <div style="text-align: left">
-                <b>{{$review->name}}</b>
-                <span style="color: #999999;">{{$review->created_at->format('d.m.Y H:i')}}</span><br>
-                @if(!$review->hide_email)
-                    <span style="color: #999999;">{{$review->email}}</span><br>
-                @endif
+                <div class="account_corner">
+                    <img class="account_photo" src="/images/account_photo.svg" alt="account_photo">
+                    <div>
+                        <b>{{$review->name}}</b>
+                        <span style="color: #999999;">{{$review->created_at->format('d.m.Y H:i')}}</span><br>
+                        @if(!$review->hide_email)
+                            <span style="color: #999999;">{{$review->email}}</span><br>
+                        @endif
 
-                @for($i = 0; $i < $review->rating; $i++)
-                    <span style="color: #FF6600;">★</span>
-                @endfor
+                        @for($i = 0; $i < $review->rating; $i++)
+                            <span style="color: #FF6600;">★</span>
+                        @endfor
 
-                @for($i = 0; $i < 5 - $review->rating; $i++)
-                    <span style="color: #CCCCCC;">★</span>
-                @endfor
+                        @for($i = 0; $i < 5 - $review->rating; $i++)
+                            <span style="color: #CCCCCC;">★</span>
+                        @endfor
+                    </div>
+                </div>
+
+
                 <p>{{$review->message}}</p>
                 <hr style="background-color: #EEEEEE;">
             </div>

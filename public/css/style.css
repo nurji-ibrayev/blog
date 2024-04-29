@@ -22,7 +22,6 @@ nav
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9998;
 }
 
 nav a
@@ -49,6 +48,12 @@ nav a:active
     border-color: #999999;
 }
 
+#desktop_menu
+{
+    border-bottom: 1px solid #FFF;
+    z-index: 9998;
+}
+
 #home_link
 {
     text-decoration: none;
@@ -61,7 +66,7 @@ nav a:active
     display: inline;
     text-align: right;
     width: 30%;
-    background-color: #000;
+    background-color: transparent;
     z-index: 9999;
 }
 
@@ -119,15 +124,38 @@ nav a:active
     background-color: #FFF;
 }
 
+.account_corner
+{
+    line-height: 20px;
+    transition: transform 100ms ease-in-out 0s;
+    transform: none;
+    z-index: 9998;
+}
+
 #account_corner
 {
     position: fixed;
-    line-height: 50px;
-    top: 0;
-    right: 7px;
-    transition: transform 100ms ease-in-out 0s;
-    transform: none;
-    z-index: 9999;
+    top: 5px;
+    right: 5px;
+}
+
+.account_photo
+{
+    height: 40px;
+    background-color: #EEEEEE;
+    vertical-align: middle;
+}
+
+.account_corner > div
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#logout_button
+{
+    border: 1px solid #FFF;
+    vertical-align: middle;
 }
 
 body
@@ -598,21 +626,24 @@ footer a:active
 
     #desktop_menu
     {
+        position: relative;
         text-align: center;
-        background-color: #000;
         line-height: 10vw;
         display: none;
-        top: 15.3vw;
     }
 
     #desktop_menu a
     {
+        display: block;
+        font-size: 5vw;
         background-color: #000;
         color: #FFF;
         fill: #FFF;
-        border: 1px solid #FFF;
-        font-size: 5vw;
-        display: block;
+        border-bottom: 1px solid #FFF;
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
     }
 
     .navigation_logo
@@ -627,12 +658,12 @@ footer a:active
 
     #mobile_menu
     {
-        position: fixed;
-        top: 0;
+        position: relative;
         display: inline-block;
         width: 100%;
         background-color: #000;
         line-height: 15vw;
+        border-bottom: 1px solid #FFF;
         margin: 0 0 0 0;
         padding: 0 0 0 0;
     }
@@ -656,21 +687,37 @@ footer a:active
         display: inline;
         fill: #FFF;
         margin: 0;
-        padding: 0 2vw 1vw 2vw;
+        padding: 0 2vw 0.75vw 2vw;
+        vertical-align: middle;
         border-radius: 1.5vw;
         font-size: 10vw;
         font-weight: bold;
+    }
+
+    .account_corner
+    {
+        line-height: 2.5vw;
     }
 
     #account_corner
     {
         display: none;
         position: relative;
-        line-height: 15vw;
-        top: 62.5vw;
+        top: 0;
         right: 0;
         text-align: center;
         background-color: #000;
+        border-bottom: 1px solid #FFF;
+    }
+
+    .account_photo
+    {
+        height: 7.5vw;
+    }
+
+    #logout_button
+    {
+        margin: 2.5vw 0;
     }
 
     h3
